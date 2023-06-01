@@ -52,7 +52,7 @@ namespace SistemaVenta.Utility
             #region Producto
             CreateMap<Producto, ProductoDTO>()
                 .ForMember(destino =>
-                destino.DescripcionCategoria,
+                destino.descripcionCategoria,
                 opt => opt.MapFrom(origen => origen.IdCategoriaNavigation.Nombre))
 
                 .ForMember(destino =>

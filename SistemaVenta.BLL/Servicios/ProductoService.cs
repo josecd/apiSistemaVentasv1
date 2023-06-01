@@ -24,13 +24,13 @@ namespace SistemaVenta.BLL.Servicios
             _mapper = mapper;
         }
 
-        public async Task<List<ProductoDTO>> Lista()
+        public async Task<List<ProductoDTO>> Lista()    
         {
             try
             {
                 var queryProducto = await _productoRepositorio.Consultar();
                 var listaProductos = queryProducto.Include(cat => cat.IdCategoriaNavigation).ToList();
-                return _mapper.Map<List<ProductoDTO>>(listaProductos.ToList());
+                return _mapper.Map<List<ProductoDTO>>(queryProducto.ToList());
             }
             catch { 
                 throw; 

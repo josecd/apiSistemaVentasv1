@@ -1,6 +1,7 @@
 ﻿using SistemaVenta.DAL.DBContext;
 using SistemaVenta.DAL.Repositorios.Contrato;
 using SistemaVenta.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SistemaVenta.DAL.Repositorios
 {
@@ -41,7 +42,6 @@ namespace SistemaVenta.DAL.Repositorios
                     string numeroVenta = ceros + correlativo.UltimoNumero.ToString();
 
                     numeroVenta = numeroVenta.Substring(numeroVenta.Length - CantidadDigitos);
-
                     modelo.NumeroDocumento = numeroVenta;
                     await _dbcontext.Venta.AddAsync(modelo);
                     await _dbcontext.SaveChangesAsync();

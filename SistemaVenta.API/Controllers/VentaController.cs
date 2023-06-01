@@ -22,6 +22,7 @@ namespace SistemaVenta.API.Controllers
         [Route("Guardar")]
         public async Task<IActionResult> Guardar([FromBody] VentaDTO venta)
         {
+           
             var rsp = new Response<VentaDTO>();
 
             try
@@ -40,7 +41,7 @@ namespace SistemaVenta.API.Controllers
 
         [HttpGet]
         [Route("Historial")]
-        public async Task<IActionResult> Historial(string buscarPro,string? numeroVenta, string? fechaInicio, string? fechaFin)
+        public async Task<IActionResult> Historial(string buscarPor,string? numeroVenta, string? fechaInicio, string? fechaFin)
         {
             var rsp = new Response<List<VentaDTO>>();
             numeroVenta = numeroVenta is null ? "" : numeroVenta;
@@ -50,7 +51,7 @@ namespace SistemaVenta.API.Controllers
             try
             {
                 rsp.status = true;
-                rsp.value = await _ventaServicio.Historial(buscarPro,numeroVenta,fechaInicio,fechaFin);
+                rsp.value = await _ventaServicio.Historial(buscarPor, numeroVenta,fechaInicio,fechaFin);
             }
             catch (Exception ex)
             {

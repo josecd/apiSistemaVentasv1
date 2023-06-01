@@ -17,6 +17,8 @@ namespace SistemaVenta.DTO
         public string? TotalTexto { get; set; }
 
         public string? FechaRegistro { get; set; }
+
+
         public virtual ICollection<DetalleVentaDTO> DetalleVenta { get; set; }
 
 

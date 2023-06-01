@@ -37,6 +37,9 @@ namespace SistemaVenta.BLL.Servicios
                 {
                     DateTime fehc_inicio = DateTime.ParseExact(fechaInicio, "dd/MM/yyyy", new CultureInfo("es-MX"));
                     DateTime fehc_fin = DateTime.ParseExact(fechaFin, "dd/MM/yyyy", new CultureInfo("es-MX"));
+                    Console.WriteLine(fehc_inicio);
+                    Console.WriteLine(fehc_fin);
+                    Console.WriteLine("______________________________________");
 
                     ListaResultado = await query.Where(v =>
                         v.FechaRegistro.Value.Date >= fehc_inicio.Date &&
@@ -69,7 +72,7 @@ namespace SistemaVenta.BLL.Servicios
                 {
                     throw new TaskCanceledException("No se pudo crear");
                 }
-                return _mapper.Map<VentaDTO>(modelo);
+                return _mapper.Map<VentaDTO>(ventaGenerada);
             } catch {
                     throw ;
 
